@@ -25,7 +25,7 @@ class MealInstance(models.Model):
     ingredients = models.ManyToManyField('IngredientInstance')
 
     def __str__(self):
-        return f'{self.meal_name.meal_name} - {self.timestamp}'
+        return self.meal_name
 
 
 class IngredientInstance(models.Model):
@@ -36,4 +36,4 @@ class IngredientInstance(models.Model):
     meal_details = models.ForeignKey('MealInstance', on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
-        return f'{self.ingredient_name.ingredient_name} - {self.timestamp}'
+        return self.ingredient_name.ingredient_name
