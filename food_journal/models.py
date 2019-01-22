@@ -35,4 +35,4 @@ class IngredientInstance(models.Model):
     meal_details = models.ForeignKey('MealInstance', on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
-        return self.ingredient_name.ingredient_name
+        return str(self.ingredient_name.ingredient_name) + ' - ' + str(self.timestamp)
