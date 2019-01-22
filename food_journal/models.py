@@ -1,5 +1,4 @@
 from django.db import models
-# from django.urls import reverse
 
 from food_journal.config.options import RATINGS, PREP_METHODS
 
@@ -20,12 +19,12 @@ class MealMeta(models.Model):
 
 class MealInstance(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
-    meal_name = models.ForeignKey('MealMeta', on_delete=models.SET_NULL, null=True)
+    meal = models.ForeignKey('MealMeta', on_delete=models.SET_NULL, null=True)
     rating = models.IntegerField(choices=RATINGS)
     ingredients = models.ManyToManyField('IngredientInstance')
 
     def __str__(self):
-        return self.meal_name
+        return self.meal.meal_name
 
 
 class IngredientInstance(models.Model):

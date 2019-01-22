@@ -1,12 +1,13 @@
 from django.contrib import admin
 from food_journal.models import IngredientsMeta, MealMeta, MealInstance, IngredientInstance
 
-# Register your models here.
-admin.site.register(MealMeta)
-
 
 class IngredientsInline(admin.TabularInline):
     model = IngredientInstance
+
+
+class MealsInline(admin.TabularInline):
+    model = MealInstance
 
 
 @admin.register(IngredientsMeta)
@@ -18,6 +19,13 @@ class IngredientsAdmin(admin.ModelAdmin):
 
 @admin.register(MealInstance)
 class MealsAdmin(admin.ModelAdmin):
-    list_display = ('meal_name', 'rating')
-    fields = ['meal_name', 'rating']
+    list_display = ('meal', 'rating')
+    fields = ['meal', 'rating']
     inlines = [IngredientsInline]
+
+
+@admin.register(MealMeta)
+class MealMetaAdmin(admin.ModelAdmin):
+    list_display = ['meal_name']
+    fields = ['meal_name']
+    inlines = [MealsInline]
