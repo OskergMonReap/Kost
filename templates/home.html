@@ -1,6 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h4>
-        Inheritance is working correctly
+    <h4 class="center">
+        Items
     </h4>
+    {% if food_items %}
+    {% for food in food_items %}
+        {{ food }}
+        {{ food.rating }}
+        <br>
+        <hr>
+        {% for ingredient in food.ingredientinstance_set.all %}
+        - {{  ingredient.ingredient_name.ingredient_name }} - - {{ ingredient.rating }}
+            <br>
+        {% endfor %}
+        <hr>
+        <hr>
+    {% endfor %}
+    {% endif %}
 {% endblock %}
