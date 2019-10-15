@@ -6,7 +6,7 @@ ENV PYTHONUNBUFFERED 1
 
 WORKDIR /code
 
-ADD . /code
+COPY . /code
 
 ENV DJANGO_SETTINGS_MODULE=Kost.settings
 

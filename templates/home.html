@@ -1,6 +1,31 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h4>
-        Inheritance is working correctly
-    </h4>
+<div class="accordion" id="accordionExample">
+    <div class="card">
+        {% if food_items %}
+        {% for food in food_items %}
+        <div class="card-header" id="header_{{ forloop.counter }}">
+            <h2 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse_{{ forloop.counter }}" aria-controls="collapse_{{ forloop.counter }}">
+                    {{ food }}
+                    <span class="badge badge-primary badge-pill">{{ food.rating }}</span>
+                </button>
+            </h2>
+        </div>
+        <div id="collapse_{{ forloop.counter }}" class="collapse show" aria-labelledby="header_{{ forloop.counter }}" data-parent="#accordionExample">
+            <div class="card-body">
+                <ul>
+                {% for ingredient in food.ingredientinstance_set.all %}
+                    <li>
+                        {{ ingredient.ingredient_name.ingredient_name }}
+                        <span class="badge badge-primary badge-pill">{{ ingredient.rating }}</span>
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
 {% endblock %}

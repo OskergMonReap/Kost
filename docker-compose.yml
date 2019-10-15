@@ -1,0 +1,29 @@
+---
+version: '3'
+
+services:
+
+    mynginxed:
+        build: ./nginx_configs
+        container_name: nginx001
+        depends_on:
+            - web
+        networks:
+            - nginx_network
+        volumes:
+            - /etc/letsencrypt/:/etc/letsencrypt/:ro
+        ports:
+            - "80:80"
+            - "443:443"
+        links:
+            - web
+
+    web:
+        build: .
+        container_name: django01
+        networks:
+            - nginx_network
+
+networks:
+    nginx_network:
+        driver: bridge

@@ -1,8 +1,6 @@
-from django.shortcuts import render
 from django.template import loader
 from django.http import HttpResponse
-from .models import IngredientInstance, MealInstance, IngredientsMeta, MealMeta
-
+from .models import MealInstance
 # Create your views here.
 
 
