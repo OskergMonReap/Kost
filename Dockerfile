@@ -1,18 +1,17 @@
-FROM python:3.6-slim-stretch
+FROM python:3.7-slim
 
 LABEL maintainer="Travis Howard <travis.howard.tj@gmail.com>"
 
+WORKDIR /usr/src/app/
+
+ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
+ENV DJANGO_SETTINGS_MODULE=Kost.settings.development
 
-WORKDIR /code
+RUN python -m pip install --upgrade pip
 
-COPY . /code
+COPY requirements.txt requirements.txt
 
-ENV DJANGO_SETTINGS_MODULE=Kost.settings
+RUN python -m pip install -r requirements.txt
 
-RUN apt update && apt -y upgrade && pip install --trusted-host pypi.python.org -r requirements.txt && \
-  python manage.py makemigrations && python manage.py migrate
-
-EXPOSE 9898
-
-CMD ["gunicorn", "Kost.wsgi:application", "--bind", "0:9898"]
+COPY . /usr/src/app/

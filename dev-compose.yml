@@ -1,0 +1,32 @@
+---
+version: '3.7'
+
+services:
+    postgres:
+        image: postgres:latest
+        restart: always
+        volumes:
+          - postgres_data:/var/lib/postgresql/data/
+        expose:
+          - 5432
+
+    web:
+        build: .
+        command: gunicorn Kost.wsgi:application -w 2 -b 0.0.0.0:8000
+        depends_on:
+          - postgres
+        env_file: .env
+        environment:
+          - DEBUG=true
+        links:
+          - postgres:postgres
+        ports:
+          - 8000:8000
+        volumes:
+          - web-django:/usr/src/app
+          - web-static:/usr/src/app/static
+
+volumes:
+    web-django:
+    web-static:
+    postgres_data:
