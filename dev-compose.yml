@@ -15,9 +15,8 @@ services:
         command: gunicorn Kost.wsgi:application -w 2 -b 0.0.0.0:8000
         depends_on:
           - postgres
-        env_file: .env
-        environment:
-          - DEBUG=true
+        env_file:
+          - .env
         links:
           - postgres:postgres
         ports:

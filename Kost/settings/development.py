@@ -13,9 +13,6 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 import os
 from .base import *
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECURITY_KEY = os.environ.get('SECRET_KEY')
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -27,10 +24,10 @@ ALLOWED_HOSTS = ['*']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASS'),
-        'HOST': os.environ.get('DB_SERVICE'),
-        'PORT': os.environ.get('DB_PORT')
+        'NAME': os.environ.get('POSTGRES_NAME'),
+        'USER': os.environ.get('POSTGRES_USER'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+        'HOST': os.environ.get('POSTGRES_SERVICE'),
+        'PORT': os.environ.get('POSTGRES_PORT')
     }
 }

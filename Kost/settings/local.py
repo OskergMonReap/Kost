@@ -13,9 +13,6 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 import os
 from .base import *
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 's0$b7_la)k#s2w6n73d6(!qk&$l3fbu2^n!0=4c))c3s_j(#4!'
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
