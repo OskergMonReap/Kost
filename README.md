@@ -11,8 +11,6 @@ I suffer from a severe case of Gastroparesis which required me to put my diet un
 -   Any and all meaningful long term observations were lost in the mix
 -   Impossible to track down entries in a reasonable amount of time
 
-As said by a million people a million different times... there had to be a better way...
-
-Thus, Kost was born.. Powered by Python via the Django Framework
+Kost is being developed to resolve these issues and allow a simpler user experience.
 
 ***NOT YET FUNCTIONAL***
