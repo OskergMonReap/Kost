@@ -2,6 +2,7 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/d7607c67012b43afb4b00d9533e56686)](https://www.codacy.com/manual/travis.howard.tj/kost?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=OskergMonReap/kost&amp;utm_campaign=Badge_Grade)
 
 ***Kost*** *(Danish for 'diet')* is a Django powered food journal application with an advanced ratings system that automatically tracks meals/ingredients' ratings over time, and eventually give ratings for prospective meals based on ingredients and prep methods!
+
 -   Simple
 -   Straight-forward
 -   Customizable
